@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Bulk Video Downloader | HD & No Watermark</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="glass-background"></div>
+
+    <header class="app-header">
+        <div class="logo">
+            <span class="logo-icon"><i class="fab fa-tiktok"></i></span>
+            <span class="logo-text">TikTok <span class="accent-text">Bulk Downloader</span></span>
+        </div>
+        <p class="subtitle">Download all high-definition videos & audios from any public TikTok profile without watermarks.</p>
+    </header>
+
+    <main class="main-container">
+        <!-- Input Section -->
+        <section class="input-section">
+            <div class="search-container">
+                <div class="search-icon-wrapper">
+                    <i class="fas fa-at"></i>
+                </div>
+                <input type="text" id="profile-input" placeholder="Enter TikTok username or profile link (e.g. @khaby.lame)" autocomplete="off">
+                <button id="fetch-btn">
+                    <span>Analyze Profile</span>
+                    <i class="fas fa-bolt"></i>
+                </button>
+            </div>
+            <div class="input-hints">
+                <span><i class="fas fa-shield-alt"></i> 100% Free & No Login</span>
+                <span><i class="fas fa-file-zipper"></i> 1-Click ZIP Archive</span>
+                <span><i class="fas fa-wand-magic-sparkles"></i> No Watermark HD</span>
+            </div>
+        </section>
+
+        <!-- Loader -->
+        <div id="loader" class="loader hidden">
+            <div class="loader-spinner"></div>
+            <h3 id="loader-title">Please wait...</h3>
+            <p id="loader-subtitle">Fetching videos from TikTok</p>
+            <div class="loader-timer" id="loader-timer">
+                <i class="fas fa-stopwatch"></i> <span id="timer-display">00:00</span>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <section id="results-section" class="hidden">
+            <!-- Creator Profile Banner -->
+            <div class="creator-banner" id="creator-banner">
+                <div class="creator-left">
+                    <img id="creator-avatar" class="creator-avatar" src="" alt="Creator Avatar" />
+                    <div class="creator-info">
+                        <div class="name-row">
+                            <h2 id="creator-nickname">Nickname</h2>
+                            <span class="verified-badge"><i class="fas fa-check-circle"></i></span>
+                        </div>
+                        <p id="creator-username" class="creator-username">@username</p>
+                    </div>
+                </div>
+                <div class="creator-stats">
+                    <div class="stat-box">
+                        <span class="stat-number" id="stat-video-count">0</span>
+                        <span class="stat-label">Videos Loaded</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bulk Toolbar -->
+            <div class="bulk-toolbar">
+                <div class="toolbar-left">
+                    <button id="select-all-btn" class="tool-btn secondary-btn">
+                        <i class="fas fa-check-double"></i> Select All
+                    </button>
+                    <span id="selection-counter" class="selection-counter">0 selected</span>
+                </div>
+                <div class="toolbar-right">
+                    <button id="download-zip-btn" class="tool-btn zip-btn" disabled>
+                        <i class="fas fa-file-zipper"></i> Download ZIP (<span id="zip-count">0</span>)
+                    </button>
+                    <button id="download-sequential-btn" class="tool-btn seq-btn" disabled>
+                        <i class="fas fa-cloud-arrow-down"></i> Download Files
+                    </button>
+                </div>
+            </div>
+
+            <!-- Download Progress Overlay / Notification -->
+            <div id="download-progress-bar" class="progress-bar-container hidden">
+                <div class="progress-info">
+                    <span id="progress-text">Preparing bulk download...</span>
+                    <span id="progress-percentage">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Video Grid -->
+            <div class="video-grid" id="video-grid">
+                <!-- Video cards rendered by JS -->
+            </div>
+
+            <!-- Pagination Controls -->
+            <div class="pagination-controls hidden" id="pagination-controls">
+                <button id="prev-btn" class="pagination-btn" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <span id="page-info" class="page-info">Page 1 of 1</span>
+                <button id="next-btn" class="pagination-btn">
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app-footer">
+        <p>&copy; 2026 TikTok Bulk Downloader. Native High-Speed Engine &bull; Private & Secure</p>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <i id="toast-icon" class="fas fa-info-circle"></i>
+        <span id="toast-message">Notification message</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
